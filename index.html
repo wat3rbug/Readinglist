@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charsset="utf-8">
+	<title>Readinglist - Cause moments to read count</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+</head>
+<body>
+	<script src="jquery-3.3.1.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="dbconnections.js"></script>
+
+	<div class="col-sm-12">
+		<div class="jumbotron info">
+			<h1>Reading list</h1>Cause moments to read count
+		</div>
+	</div>
+	
+	<div class="row">&nbsp;</div>
+
+		<div class="col-sm-2">
+			<button type="button" class="btn btn-success" id="addRecordBtn">Add Link</button>
+			&nbsp;
+
+			<button type="button" class="btn btn-success" id="addCategoryBtn">Add Category</button>
+		</div>
+		
+	<div class="row">&nbsp;</div>
+	<div class="row" id="listingdiv">
+		<ul class="Readlisting">
+		</ul>
+	</div>		
+</body>
+</html>
+
+
+<div class="modal" id="success" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-header">
+			<hr class="modal-title">Measurement added</hr>
+		</div>
+		<div class="modal-body">
+			You've added a measurement<button type="button" class="btn-btn-success" id="close">Close</button>
+		</div>
+	</div>
+</div>
+
+<div class="modal" id="addCatSuccess" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header d-block success">
+				<h5 class="modal-title text-center">Success</h5>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12" id="addCatMsg"></div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>			
+					
+
+<div class="modal" id="addCategory" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header d-block">
+				<h5 class="modal-title text-center">Add Category</h5>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-4">&nbsp;</div>
+					<div class="col-sm-4" id="catListingdiv"></div>
+					<div class="col-sm-4">&nbsp;</div>
+				</div> 
+				<div class="row">&nbsp;</div>
+				<div class="row">	
+					<div class="col-sm-6 text-right">New Category</div><div class="col-sm-6"><input id="category"/></div>
+				</div>
+			</div>
+			<div class="modal-footer panel-primary text-right">
+				<button type="button" class="btn btn-success" aria-label="Add" id="pushCategory"><span class="glyphicon glyphicon-plus">&nbsp;Add Category</span></button>
+			</div>
+		</div>
+	</div>
+</div>
+			
+
+<div class="modal" id="addListing" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<hr class="modal-title text-center">Add Link</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-6 text-right">Title</div><div class="col-sm-6"><input id="title"/></div>
+				</div>
+				<div class="row">&nbsp;</div>
+				<div class="row">
+					<div class="col-sm-6 text-right">Link</div><div class="col-sm-6"><input id="link"/></div>
+				</div>											
+			</div>	
+			<div class="modal-footer panel-primary text-right">
+				<button type="button" class="btn btn-primary" aria-label="Add" id="pushToDb">Add</button>
+			</div>
+		</div>
+	</div>
+</div>
