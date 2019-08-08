@@ -1,6 +1,10 @@
 <?php
 require "Readinglist.php";
 $db = new ReadingList();
-$id = $db->getIdForLastInsert();
+
+$title = $_POST['title'];
+$link = $_POST['link'];
+
+$id = $db->getIdForLastInsert($title, $link);
 return $id['id'];
 ?>
