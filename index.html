@@ -10,7 +10,7 @@
 	<script src="jquery-3.3.1.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script src="dbconnections.js"></script>
-
+	
 	<div class="col-sm-12">
 		<div class="jumbotron info">
 			<h1>Reading list</h1>Cause moments to read count
@@ -109,6 +109,15 @@
 			</div>
 			<div class="modal-body">
 				<div class="row">
+					<div class="col-sm-3">&nbsp;</div>
+					<div class="col-sm-6 text-center">
+						<select class="browser-default custom-select" id="catSelector">
+						</select>					
+					</div>
+					<div class="col-sm-3">&nbsp;</div>
+				</div>
+				<div class="row">&nbsp;</div>
+				<div class="row">
 					<div class="col-sm-6 text-right">Title</div><div class="col-sm-6"><input id="title"/></div>
 				</div>
 				<div class="row">&nbsp;</div>
@@ -117,7 +126,12 @@
 				</div>											
 			</div>	
 			<div class="modal-footer panel-primary text-right">
-				<button type="button" class="btn btn-primary" aria-label="Add" id="pushToDb">Add</button>
+				<button type="button" class="btn btn-success" aria-label="Add" id="pushToDb">
+					<span class="glyphicon glyphicon-plus"></span>&nbsp;Add
+				</button>
+				<button type="button" class="btn btn-default" aria-label="Cancel" id="cancelLink">
+					<span class='glyphicon glyphicon-ban-circle'>&nbsp;Cancel</span>
+				</button>
 			</div>
 		</div>
 	</div>

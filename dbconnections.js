@@ -76,10 +76,23 @@ $(document).ready(function(){
 	
 	$("#addRecordBtn").on("click", function() {
 		$('#addListing').modal('show');
+		$.ajax({
+			url: "getCatForDropDown.php",
+			type: "post",
+			async: false,
+			success: function(result)	{
+				$('#catSelector').empty();
+				$('#catSelector').append(result);
+			}
+		});
 	});
 	
 	$('#cancelCategory').on("click", function() {
 		$('#addCategory').modal('hide');	
+	});
+	
+	$('#cancelLink').on("click", function() {
+		$('#addListing').modal('hide');
 	});
 	
 	// add new link to reading list
@@ -87,6 +100,7 @@ $(document).ready(function(){
 	$('#pushToDb').on("click", function() {
 		var title = $('#title').val();
 		var link = $('#link').val();
+		var category = $("#catSelector").val();
 		var id = 0;
 		$.ajax({
 			url: "addLink.php",
@@ -94,23 +108,15 @@ $(document).ready(function(){
 			async: false,
 			data: {
 				"title" : title,
-				"link": link
+				"link": link,
+				"category": category
 			},
 			success: function(id) {
 				$('#addListing').modal('hide');
-				var id = $.ajax({
-					url: "getlastId.php",
-					type: "post",
-					async: false,
-					success: function(result) {
-						id = result;
-					}
-				});
-				var li = "<li id='" + id + "><div class='form-check'><input type='checkbox' onclick='removeReadingItem(" + id;
-				li += ")' class='form-check-input' id='item" + id;
-				li += "><label class='form-check-label' for='item" + id + "'>";
-				li += "<a target='_blank' href='" + link + "'>" + title + "</a></label></div><br>\n";
-				$('#listing').add(li);
+				$("#listingdiv ul").empty();
+				$.ajax({url: "getlistings.php", success: function(result) {
+					$('#listingdiv ul').append(result);
+				}});
 			}
 		});
 	});
