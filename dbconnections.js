@@ -78,6 +78,10 @@ $(document).ready(function(){
 		$('#addListing').modal('show');
 	});
 	
+	$('#cancelCategory').on("click", function() {
+		$('#addCategory').modal('hide');	
+	});
+	
 	// add new link to reading list
 
 	$('#pushToDb').on("click", function() {

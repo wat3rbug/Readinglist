@@ -20,17 +20,23 @@
 	<div class="row">&nbsp;</div>
 
 		<div class="col-sm-2">
-			<button type="button" class="btn btn-success" id="addRecordBtn">Add Link</button>
+			<button type="button" class="btn btn-success" id="addRecordBtn">
+				<span class="glyphicon glyphicon-plus"></span>&nbsp;Add Link
+			</button>
 			&nbsp;
 
-			<button type="button" class="btn btn-success" id="addCategoryBtn">Add Category</button>
+			<button type="button" class="btn btn-success" id="addCategoryBtn">
+				<span class="glyphicon glyphicon-plus"></span>&nbsp;Add Category
+			</button>
 		</div>
 		
 	<div class="row">&nbsp;</div>
-	<div class="row" id="listingdiv">
-		<ul class="Readlisting">
-		</ul>
-	</div>		
+	<div class="row">
+		<div class="col-sm-11" id="listingdiv">
+			<ul class="Readlisting">
+			</ul>
+		</div>	
+	</div>	
 </body>
 </html>
 
@@ -80,7 +86,12 @@
 				</div>
 			</div>
 			<div class="modal-footer panel-primary text-right">
-				<button type="button" class="btn btn-success" aria-label="Add" id="pushCategory"><span class="glyphicon glyphicon-plus">&nbsp;Add Category</span></button>
+				<button type="button" class="btn btn-success" aria-label="Add" id="pushCategory">
+					<span class="glyphicon glyphicon-plus">&nbsp;Add Category</span>
+				</button>&nbsp;
+				<button type="button" class="btn btn-default" aria-label="Cancel" id="cancelCategory">
+					<span class='glyphicon glyphicon-ban-circle'>&nbsp;Cancel</span>
+				</button>
 			</div>
 		</div>
 	</div>

@@ -41,7 +41,7 @@ class ReadingList
 	}
 	
 	function getAllListings() {
-		$sql = "SELECT readinglist.id, title, link, categories.category, readinglist.category FROM readinglist JOIN categories ON readinglist.category = categories.id  ORDER BY categories.id ASC";
+		$sql = "SELECT readinglist.id, title, link, categories.category FROM readinglist JOIN categories ON readinglist.category = categories.id  ORDER BY categories.id ASC";
 		$statment = $this->conn->query($sql);
 		while($row = $statment->fetch()) {
 			$output[] = $row;
