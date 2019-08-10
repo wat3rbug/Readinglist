@@ -1,9 +1,9 @@
 <?php
 
-
 class Category {
 	
 	private $conn;
+	private $list;
 
 	function __construct() {
 		include_once("DBConnection.php");
@@ -17,7 +17,7 @@ class Category {
 		$options = [
 			PDO::ATTR_ERRMODE				=> PDO::ERRMODE_EXCEPTION,
 			PDO::ATTR_DEFAULT_FETCH_MODE	=> PDO::FETCH_ASSOC,
-			PDO::ATTR_EMULATE_PREPARES		=> false,
+			PDO::ATTR_EMULATE_PREPARES		=> true,
 		];
 		try {
 			$this->conn = new PDO($dsn, $username, $password);
@@ -27,6 +27,15 @@ class Category {
 	}
 	function getAllCategories() {
 		$sql = "SELECT * from categories ORDER BY ID ASC";
+		$statment = $this->conn->query($sql);
+		while($row = $statment->fetch()) {
+			$output[] = $row;
+		}
+		return $output;
+	}
+	
+	function getAllUsedCategories() {
+		$sql = "SELECT categories.id, categories.category FROM categories JOIN readinglist ON categories.id = readinglist.category GROUP BY categories.id";
 		$statment = $this->conn->query($sql);
 		while($row = $statment->fetch()) {
 			$output[] = $row;

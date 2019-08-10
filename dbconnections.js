@@ -4,7 +4,6 @@ function removeReadingItem(id) {
 	$.ajax({ 
 		url: "removeListing.php", 
 		type: "post",
-		async: false,
 		data: {"id": id },
 		success: function() {
 			$('#listingdiv ul').empty();
@@ -21,7 +20,6 @@ function removeCategory(id) {
 	$.ajax({
 		url: "removeCatById.php",
 		type: "post",
-		async: false,
 		data: {"id": id},
 		success: function() {
 			$('#addCategory').modal('hide');
@@ -35,7 +33,6 @@ function showAddCategoryPopup() {
 	$.ajax({
 		url: "getCategories.php",
 		type: "get",
-		async: false,
 		success: function(result) {
 			$('#catListingdiv').empty();
 			$('#catListingdiv').append(result);
@@ -45,9 +42,18 @@ function showAddCategoryPopup() {
 
 $(document).ready(function(){
 
-	$.ajax({url: "getlistings.php", success: function(result) {
-		$('#listingdiv ul').append(result);
-	}});
+	$.ajax({
+		url: "getlistings.php", 
+		success: function(result) {
+			$('#listingdiv ul').append(result);
+		}
+	});
+	
+	$.ajax({
+		url: "getCatForButtons.php", success: function(result) {
+			$('#quicklink').append(result);
+		}
+	});
 	
 	// add category section
 	
@@ -60,7 +66,6 @@ $(document).ready(function(){
 		$.ajax({
 			url: "addCategory.php",
 			type: "post",
-			async: false,
 			data: {
 				"category": category
 			}, 
@@ -79,7 +84,6 @@ $(document).ready(function(){
 		$.ajax({
 			url: "getCatForDropDown.php",
 			type: "post",
-			async: false,
 			success: function(result)	{
 				$('#catSelector').empty();
 				$('#catSelector').append(result);
@@ -105,7 +109,6 @@ $(document).ready(function(){
 		$.ajax({
 			url: "addLink.php",
 			type: "post",
-			async: false,
 			data: {
 				"title" : title,
 				"link": link,
