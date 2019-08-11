@@ -43,6 +43,13 @@ class Category {
 		return $output;
 	}
 	
+	function editCategory($id, $category) {
+		$statement = $this->conn->prepare("UPDATE categories SET category = ? where id = ?");
+		$statement->bindParam(1, $category);
+		$statement->bindParam(2, $id);
+		$statement->execute();
+	}
+	
 	function addCategory($category) {
 		$statement = $this->conn->prepare("INSERT INTO categories (category) VALUES (?)");
 		$statement->bindParam(1, $category);

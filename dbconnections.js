@@ -54,6 +54,42 @@ $(document).ready(function(){
 			$('#quicklink').append(result);
 		}
 	});
+	// edit category section
+	
+	$('#editCategoryBtn').on("click", function() {
+		$('#editCategory').modal('show');
+		$.ajax({
+			url: "getCatForDropDown.php",
+			type: "get",
+			success: function(result) {
+				$('#catEditSelector').empty();
+				$('#catEditSelector').append(result);
+			}
+		});
+	});
+	
+	$('#pushAlteredCategory').on("click", function () {
+		var category = $('#editCategoryInput').val();
+		var catId = $('#catEditSelector').val();
+		$.ajax({
+			url: "editCategory.php",
+			type: "post",
+			data: {
+				"category": category,
+				"catId": catId
+			},
+			success: function() {
+				$('#editCategory').modal('hide');
+				$('#editCatSuccess').modal('show');
+				$('#editCatMsg').text("Category is name now '" + category + "'.");
+			}
+		});
+	});
+	
+	
+	$('#editCatSuccessBtn').on('click', function() {
+		window.parent.window.location.reload();
+	});
 	
 	// add category section
 	

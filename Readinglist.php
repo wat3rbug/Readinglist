@@ -57,6 +57,5 @@ class ReadingList
 			$statement->execute();
 		}
 	}
-	
 }
 ?>

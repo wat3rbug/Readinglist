@@ -27,7 +27,10 @@
 
 			<button type="button" class="btn btn-success" id="addCategoryBtn">
 				<span class="glyphicon glyphicon-plus"></span>&nbsp;Add Category
-			</button>
+			</button>&nbsp;
+			<button type="button" class="btn btn-warning" id="editCategoryBtn">
+				<span class="glyphicon glyphicon-pencil"></span>&nbsp;Edit Category
+			</button>&nbsp;
 		</div>
 		
 	<div class="row">&nbsp;</div>
@@ -63,10 +66,66 @@
 					<div class="col-sm-12" id="addCatMsg"></div>
 				</div>
 			</div>
+			<div class="modal-footer text-right">
+				<button type="button" class="btn btn-success" id="addCatSuccessBtn">
+					<span class="glyphicon glyphicon-check"></span>&nbsp;Close
+				</button>
+			</div>
 		</div>
 	</div>
-</div>			
-					
+</div>	
+
+<div class="modal" id="editCatSuccess" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header d-block success">
+				<h5 class="modal-title text-center">Success</h5>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-12" id="editCatMsg"></div>
+				</div>
+			</div>
+			<div class="modal-footer text-right">
+				<button type="button" class="btn btn-success" id="editCatSuccessBtn">
+					<span class="glyphicon glyphicon-check"></span>&nbsp;Close
+				</button>
+			</div>
+		</div>
+	</div>
+</div>	
+
+<div class="modal" id="editCategory" tabindex="-1" role="dialog">
+	<div class="modal-dialog" role="document">
+		<div class="modal-content">
+			<div class="modal-header d-block">
+				<h5 class="modal-title text-center">Edit Category</h5>
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-sm-3">&nbsp;</div>
+					<div class="col-sm-6">
+						<select class="browser-default custom-select" id="catEditSelector">
+						</select>
+					</div>
+					<div class="col-sm-3">&nbsp;</div>
+				</div>	
+				<div class="row">&nbsp;</div>
+				<div class="row">
+					<div class="col-sm-6 text-right">New Name</div><div class="col-sm-6"><input id="editCategoryInput"/></div>
+				</div>
+			</div>
+			<div class="modal-footer panel-primary text-right">
+				<button type="button" class="btn btn-success" aria-label="Add" id="pushAlteredCategory">
+					<span class="glyphicon glyphicon-plus">&nbsp;Change Category</span>
+				</button>&nbsp;
+				<button type="button" class="btn btn-default" aria-label="Cancel" id="cancelAlteredCategory">
+					<span class='glyphicon glyphicon-ban-circle'>&nbsp;Cancel</span>
+				</button>
+			</div>	
+		</div>
+	</div>
+</div>	
 
 <div class="modal" id="addCategory" tabindex="-1" role="dialog">
 	<div class="modal-dialog" role="document">
@@ -76,9 +135,9 @@
 			</div>
 			<div class="modal-body">
 				<div class="row">
-					<div class="col-sm-4">&nbsp;</div>
-					<div class="col-sm-4" id="catListingdiv"></div>
-					<div class="col-sm-4">&nbsp;</div>
+					<div class="col-sm-3">&nbsp;</div>
+					<div class="col-sm-6" id="catListingdiv"></div>
+					<div class="col-sm-3">&nbsp;</div>
 				</div> 
 				<div class="row">&nbsp;</div>
 				<div class="row">	
