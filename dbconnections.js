@@ -8,7 +8,7 @@ function removeReadingItem(id) {
 		success: function() {
 			$('#listingdiv ul').empty();
 			$.ajax({
-				url: "getlistings.php", 
+				url: "getListings.php", 
 				success: function(result) {
 					$('#listingdiv ul').append(result);
 			}});
@@ -43,7 +43,7 @@ function showAddCategoryPopup() {
 $(document).ready(function(){
 
 	$.ajax({
-		url: "getlistings.php", 
+		url: "getListings.php", 
 		success: function(result) {
 			$('#listingdiv ul').append(result);
 		}
@@ -153,7 +153,7 @@ $(document).ready(function(){
 			success: function(id) {
 				$('#addListing').modal('hide');
 				$("#listingdiv ul").empty();
-				$.ajax({url: "getlistings.php", success: function(result) {
+				$.ajax({url: "getListings.php", success: function(result) {
 					$('#listingdiv ul').append(result);
 				}});
 			}
