@@ -35,8 +35,9 @@ foreach($result_raw as $result) {
 
 function getPanelTop($category) {
 	$row_cat = str_replace(" ", "_", $category);
-	$printout = "<div class='card'>\n\t<div class='card-header'><a name='". $row_cat . "'>" .$category;
-	$printout .= "</a></div>\n\t<div class='card-body'>\n\t\t<ul class='list-group list-group-flush'>\n";
+	$printout = "<div class='card'>\n\t<div class='card-header'>" . $category . "&nbsp;<a data-toggle='collapse'  href='#";
+	$printout .= $row_cat . "' aria-expanded='true' name='". $row_cat . "' aria-controls='" . $row_cat . "'>Click to expand" ;
+	$printout .= "</a></div>\n\t<div class='card-body collapse show' id='" . $row_cat . "'>\n\t\t<ul class='list-group list-group-flush'>\n";
 	return $printout;
 }
 ?>
