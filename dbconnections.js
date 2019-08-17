@@ -16,30 +16,6 @@ function removeReadingItem(id) {
 	});
 }
 
-function removeCategory(id) {
-	$.ajax({
-		url: "removeCatById.php",
-		type: "post",
-		data: {"id": id},
-		success: function() {
-			$('#addCategory').modal('hide');
-			showAddCategoryPopup();
-		}
-	});
-}
-
-function showAddCategoryPopup() {
-	$('#addCategory').modal('show');
-	$.ajax({
-		url: "getCategories.php",
-		type: "get",
-		success: function(result) {
-			$('#catListingdiv').empty();
-			$('#catListingdiv').append(result);
-		}
-	});
-}
-
 $(document).ready(function(){
 
 	$.ajax({
@@ -48,26 +24,7 @@ $(document).ready(function(){
 			$('#listingdiv ul').append(result);
 		}
 	});
-	
-	$.ajax({
-		url: "getCatForButtons.php", success: function(result) {
-			$('#quicklink').append(result);
-		}
-	});
-	// edit category section
-	
-	$('#editCategoryBtn').on("click", function() {
-		$('#editCategory').modal('show');
-		$.ajax({
-			url: "getCatForDropDown.php",
-			type: "get",
-			success: function(result) {
-				$('#catEditSelector').empty();
-				$('#catEditSelector').append(result);
-			}
-		});
-	});
-	
+		
 	$('#pushAlteredCategory').on("click", function () {
 		var category = $('#editCategoryInput').val();
 		var catId = $('#catEditSelector').val();
@@ -86,33 +43,6 @@ $(document).ready(function(){
 		});
 	});
 	
-	
-	$('#editCatSuccessBtn').on('click', function() {
-		window.parent.window.location.reload();
-	});
-	
-	// add category section
-	
-	$('#addCategoryBtn').on("click", function() {
-		showAddCategoryPopup();
-	});
-	
-	$('#pushCategory').on("click", function() {
-		var category = $('#category').val();
-		$.ajax({
-			url: "addCategory.php",
-			type: "post",
-			data: {
-				"category": category
-			}, 
-			success: function() {
-				$('#addCategory').modal('hide');
-				$('#addCatSuccess').modal('show');
-				$('#addCatMsg').text(category + " category was added");
-			}
-		});
-	});
-	
 	// display the modal to add a link to the reading list
 	
 	$("#addRecordBtn").on("click", function() {
@@ -125,10 +55,6 @@ $(document).ready(function(){
 				$('#catSelector').append(result);
 			}
 		});
-	});
-	
-	$('#cancelCategory').on("click", function() {
-		$('#addCategory').modal('hide');	
 	});
 	
 	$('#cancelLink').on("click", function() {
