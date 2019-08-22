@@ -131,8 +131,16 @@ $(document).ready(function(){
 		$('#addCategory').modal('hide');	
 	});
 	
+	$('#cancelAlteredCategory').on("click", function() {
+		$('#editCategory').modal('hide');
+	});
+	
 	$('#cancelLink').on("click", function() {
 		$('#addListing').modal('hide');
+	});
+	
+	$('#addCatSuccessBtn').on("click", function() {
+		$('#addCatSuccess').modal('hide');	
 	});
 	
 	// add new link to reading list
