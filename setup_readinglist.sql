@@ -1,3 +1,6 @@
+create database readinglist;
+use readinglist;
+
 drop table if exists `readinglist`;
 drop table if exists `categories`;
 create table categories (

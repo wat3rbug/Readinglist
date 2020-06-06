@@ -117,6 +117,8 @@ $(document).ready(function(){
 	
 	$("#addRecordBtn").on("click", function() {
 		$('#addListing').modal('show');
+		$('#title').val();
+		$('#link').val();
 		$.ajax({
 			url: "getCatForDropDown.php",
 			type: "post",
